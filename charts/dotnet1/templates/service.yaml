@@ -1,16 +1,21 @@
-
+{{- $name := include "name" . -}}
+{{- $fullName := include "fullname" . -}}
+{{- $chart := include "chart" . -}}
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "dotnet1.fullname" . }}
+  name: {{ $fullName }}
   labels:
-    {{- include "dotnet1.labels" . | nindent 4 }}
+    app.kubernetes.io/name: {{ $name }}
+    helm.sh/chart: {{ $chart }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  type: {{ .Values.service.type }}
+  selector:
+    app.kubernetes.io/name: {{ $name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
   ports:
   - port: 80
     targetPort: 80
     name: http
-  selector:
-    {{- include "dotnet1.selectorLabels" . | nindent 4 }}
