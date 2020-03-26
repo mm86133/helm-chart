@@ -3,9 +3,9 @@
 # # Declare variables to be passed into your templates.
 
 
-environment: development
+environment: "development"
 
-apphost: k8s
+apphost: "k8s"
 
 label:
   name: aspnet3core
