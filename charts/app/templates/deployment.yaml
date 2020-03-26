@@ -80,6 +80,6 @@ spec:
             - containerPort: {{ .Values.container.port }}
           env:
             - name: apphost
-              value: {{ .Values.apphost }}
+              value: "{{ .Values.apphost }}"
             - name: appenvironment
-              value: {{ .Values.environment}}
+              value: "{{  .Values.environment }}"
