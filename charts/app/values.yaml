@@ -13,8 +13,8 @@ label:
 container:
   name: aspnet3
   pullPolicy: IfNotPresent
-  image: aspnet3k8s
-  tag: v1
+  image: adslytic/helm
+  tag: aspnetk8s-test-v1
   port: 80
 replicas: 3
 
