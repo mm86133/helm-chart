@@ -7,7 +7,6 @@ replicaCount: 1
 image:
   name: aspnet3
   repository: adslytic/helm
-  tag: aspnetk8s-test-v1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
